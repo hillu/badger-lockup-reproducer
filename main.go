@@ -100,6 +100,7 @@ func insert(entries *roaring.Bitmap, filtered bool) (id uint32, err error) {
 
 newTxn:
 	for todo, done := entries.Clone(), roaring.New(); !todo.IsEmpty(); {
+		log.Printf("todo: %d, done: %d", todo.GetCardinality(), done.GetCardinality())
 		txn := db.NewTransaction(true)
 		it := todo.Iterator()
 		for it.HasNext() {
