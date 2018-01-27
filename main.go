@@ -121,9 +121,12 @@ newTxn:
 			size += n
 			done.Add(uint32(t))
 		}
-		if err = txn.Commit(nil); err == badger.ErrConflict {
+		if err = txn.Commit(nil); err != nil {
 			txn.Discard()
-			goto newTxn
+			if err == badger.ErrConflict {
+				goto newTxn
+			}
+			return
 		}
 		todo.AndNot(done)
 	}
