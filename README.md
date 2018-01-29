@@ -13,6 +13,9 @@ using BadgerDB version 1.3.0 and the latest commit at the time
 The symptoms seem similar to what has been described in
 BadgerDB issue [#384](https://github.com/dgraph-io/badger/issues/384).
 
+I have submitted this problem as issue
+[#410](https://github.com/dgraph-io/badger/issues/410).
+
  -- Hilko Bengen <bengen@hilluzination.de>
 
 ## How to reproduce
